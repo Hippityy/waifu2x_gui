@@ -1,0 +1,17 @@
+[
+    {
+        "extension": ".png",
+        "native": true,
+        "method": ""
+    },
+    {
+        "extension": ".jpg",
+        "native": true,
+        "method": ""
+    },
+    {
+        "extension": ".webp",
+        "native": true,
+        "method": ""
+    }
+]
