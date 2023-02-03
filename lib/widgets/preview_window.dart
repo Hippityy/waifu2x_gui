@@ -41,6 +41,7 @@ class _PreviewWindowState extends State<PreviewWindow> {
         }
       });
     }
+    setState(() {});
   }
 
   @override

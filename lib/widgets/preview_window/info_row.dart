@@ -43,6 +43,7 @@ class _InfoRowState extends State<InfoRow> {
                         onPressed: () {
                           setState(() {
                             importedFilesList.clear();
+                            widget.onChanged(importedFilesList);
                           });
                         },
                         style: ElevatedButton.styleFrom(
