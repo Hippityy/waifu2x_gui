@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:waifu_gui/utils/file_config.dart';
 
 class CheckboxWidget extends StatefulWidget {
   final String _title;

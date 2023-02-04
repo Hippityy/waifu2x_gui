@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:cross_file/cross_file.dart';
 import '../../utils/image_extensions.dart';
-import '../../utils/imported_files.dart';
+import 'package:waifu_gui/utils/globals.dart';
 import 'upload_widget.dart';
 
 class InfoRow extends StatefulWidget {

@@ -1,13 +1,9 @@
 library waifu_gui.shell_adaptor;
 
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:process_run/shell.dart';
 
-import 'package:waifu_gui/utils/file_config.dart';
-import 'package:waifu_gui/utils/imported_files.dart';
 import 'package:waifu_gui/utils/globals.dart';
 
 Future<bool> waifuExeExists() async {
@@ -43,7 +39,6 @@ String shellCommand() {
 String outputPath(String filePath) {
   int indexOfDot = filePath.lastIndexOf(".");
   String fileNameWithoutExtension = filePath.substring(0, indexOfDot);
-  String extension = filePath.substring(indexOfDot);
   return "$fileNameWithoutExtension-output${fileConfig.extension.string}";
 }
 // remove the extension from a input file path

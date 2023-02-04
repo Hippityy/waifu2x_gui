@@ -6,11 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:path/path.dart' as p;
-import 'package:flutter/services.dart';
-import 'package:waifu_gui/utils/file_config.dart';
 
 import 'package:waifu_gui/utils/image_extensions.dart';
-import 'package:waifu_gui/utils/imported_files.dart';
 import 'package:waifu_gui/utils/globals.dart';
 
 import 'preview_window/info_row.dart';
