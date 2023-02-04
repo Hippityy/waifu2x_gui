@@ -7,6 +7,7 @@ import 'package:desktop_drop/desktop_drop.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:path/path.dart' as p;
 import 'package:flutter/services.dart';
+import 'package:waifu_gui/utils/file_config.dart';
 
 import '../utils/image_extensions.dart';
 import '../utils/imported_files.dart';
@@ -24,11 +25,16 @@ class PreviewWindow extends StatefulWidget {
 
 class _PreviewWindowState extends State<PreviewWindow> {
   void _setFileList(List<XFile> files) async {
+    if (files.isEmpty) {
+      setState(() {});
+      return;
+    }
+
     for (final file in files) {
       // If file extension is supported
       try {
         final extension = supportedExtensions
-            .firstWhere((e) => e.extension == p.extension(file.path));
+            .firstWhere((e) => e.string == p.extension(file.path));
       } on StateError catch (e) {
         debugPrint(e.message);
         return;
@@ -39,9 +45,24 @@ class _PreviewWindowState extends State<PreviewWindow> {
         } else {
           importedFilesList[0] = file;
         }
+
+        int indexOfDot = file.path.lastIndexOf(".");
+        int indexOfLastSlash = file.path.lastIndexOf("\\");
+
+        String filePathWithoutExtension = file.path.substring(0, indexOfDot);
+        String filePathWithoutFileName =
+            filePathWithoutExtension.substring(0, indexOfLastSlash + 1);
+        String fileName =
+            filePathWithoutExtension.substring(indexOfLastSlash + 1);
+        String extension = file.path.substring(indexOfDot);
+
+        // debug print extension value
+        debugPrint('extension: $extension');
+        fileConfig.output_path = filePathWithoutFileName;
+        fileConfig.output_name = fileName;
+        fileConfig.extension = Extension(extension);
       });
     }
-    setState(() {});
   }
 
   @override
