@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'widgets/preview_window.dart';
 import 'widgets/config_widget.dart';
-import 'utils/global_key.dart';
+import 'utils/globals.dart';
 
 void main() {
   runApp(const MyApp());

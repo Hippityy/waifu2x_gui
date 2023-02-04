@@ -8,12 +8,11 @@ import 'package:process_run/shell.dart';
 
 import 'package:waifu_gui/utils/file_config.dart';
 import 'package:waifu_gui/utils/imported_files.dart';
-import 'package:waifu_gui/utils/global_key.dart';
+import 'package:waifu_gui/utils/globals.dart';
 
 String directory = Directory.current.path;
 
 Future<bool> waifuExeExists() async {
-  directory = Directory.current.path;
   final String waifuExePath = '$directory\\upscaler\\waifu2x-ncnn-vulkan.exe';
   debugPrint('waifuExePath: $waifuExePath');
   return File(waifuExePath).exists();
@@ -24,26 +23,13 @@ void upscale() async {
 
   bool exeExists = await waifuExeExists();
   if (!exeExists) {
+    showSnackBar(text: "Waifu2x-ncnn-vulkan.exe not found");
     debugPrint("exe not founds");
     return;
   }
-  SnackBar snackBar = SnackBar(
-    content: Text("Running."),
-    backgroundColor: Colors.blue,
-    behavior: SnackBarBehavior.floating,
-    width: 200,
-  );
-  snackbarKey.currentState?.showSnackBar(snackBar);
+  showSnackBar(text: 'Running.');
   await shell.run(shellCommand());
-  debugPrint('Done!');
-
-  snackBar = SnackBar(
-    content: Text("Done!"),
-    backgroundColor: Colors.blue,
-    behavior: SnackBarBehavior.floating,
-    width: 200,
-  );
-  snackbarKey.currentState?.showSnackBar(snackBar);
+  showSnackBar(text: 'Done.');
 }
 
 String shellCommand() {
@@ -64,3 +50,12 @@ String outputPath(String filePath) {
 }
 // remove the extension from a input file path
 
+void showSnackBar({required String text}) {
+  SnackBar snackBar = SnackBar(
+    content: Text(text),
+    backgroundColor: Colors.blue,
+    behavior: SnackBarBehavior.floating,
+    width: 200,
+  );
+  snackbarKey.currentState?.showSnackBar(snackBar);
+}
