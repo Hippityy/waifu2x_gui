@@ -4,7 +4,8 @@ import 'dart:io';
 
 import 'package:waifu_gui/utils/imported_files.dart';
 import 'package:waifu_gui/utils/shell_adaptor.dart';
-import 'package:waifu_gui/widgets/slider_widget.dart';
+import 'package:waifu_gui/widgets/config_widgets/checkbox_widget.dart';
+import 'package:waifu_gui/widgets/config_widgets/slider_widget.dart';
 import 'package:waifu_gui/utils/file_config.dart';
 
 class ConfigWidget extends StatelessWidget {
@@ -29,15 +30,23 @@ class ConfigWidget extends StatelessWidget {
       ),
       child: Column(children: [
         if (kDebugMode) Text(Directory.current.path),
-        SettingSlider(
+        SliderWidget(
           title: "De-noise",
           intervals: const [-1, 0, 1, 2, 3],
           onChanged: (int value) => {fileConfig.noise = value},
         ),
-        SettingSlider(
+        SliderWidget(
           title: "Scale",
           intervals: const [1, 2, 4, 8, 16, 32],
           onChanged: (int value) => {fileConfig.scale = value},
+        ),
+        CheckboxWidget(
+          title: "TTA",
+          value: fileConfig.tta,
+          onChanged: (bool value) {
+            fileConfig.tta = value;
+            debugPrint('TTA: $value | ${fileConfig.tta}');
+          },
         ),
         ElevatedButton(
           onPressed: () {

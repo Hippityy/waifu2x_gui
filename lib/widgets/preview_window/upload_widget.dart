@@ -96,8 +96,7 @@ class _UploadWidgetState extends State<UploadWidget> {
                   AsyncSnapshot<List<Extension>> snapshot) {
                 if (snapshot.hasData) {
                   _supportedTypes = FileType.custom;
-                  extensionList =
-                      snapshot.data!.map((e) => e.extension).toList();
+                  extensionList = snapshot.data!.map((e) => e.string).toList();
                   return Text(
                       style: const TextStyle(color: Colors.white),
                       'Supported image formats: ${extensionList.join(" ")}');

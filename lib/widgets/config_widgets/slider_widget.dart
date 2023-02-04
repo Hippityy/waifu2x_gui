@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class SettingSlider extends StatefulWidget {
+class SliderWidget extends StatefulWidget {
   final List<int> _intervals;
   final String _title;
   final ValueChanged<int> onChanged;
   @override
-  const SettingSlider({
+  const SliderWidget({
     Key? key,
     required title,
     required intervals,
@@ -16,10 +16,10 @@ class SettingSlider extends StatefulWidget {
         super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _SettingSliderState();
+  State<StatefulWidget> createState() => _SliderWidgetState();
 }
 
-class _SettingSliderState extends State<SettingSlider> {
+class _SliderWidgetState extends State<SliderWidget> {
   int _value = 1;
   @override
   Widget build(BuildContext context) {
