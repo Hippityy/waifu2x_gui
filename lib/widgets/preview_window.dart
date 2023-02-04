@@ -11,6 +11,7 @@ import 'package:waifu_gui/utils/file_config.dart';
 
 import 'package:waifu_gui/utils/image_extensions.dart';
 import 'package:waifu_gui/utils/imported_files.dart';
+import 'package:waifu_gui/utils/globals.dart';
 
 import 'preview_window/info_row.dart';
 import 'preview_window/upload_widget.dart';

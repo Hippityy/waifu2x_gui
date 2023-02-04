@@ -10,8 +10,6 @@ import 'package:waifu_gui/utils/file_config.dart';
 import 'package:waifu_gui/utils/imported_files.dart';
 import 'package:waifu_gui/utils/globals.dart';
 
-String directory = Directory.current.path;
-
 Future<bool> waifuExeExists() async {
   final String waifuExePath = '$directory\\upscaler\\waifu2x-ncnn-vulkan.exe';
   debugPrint('waifuExePath: $waifuExePath');
