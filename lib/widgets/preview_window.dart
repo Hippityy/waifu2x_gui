@@ -9,8 +9,8 @@ import 'package:path/path.dart' as p;
 import 'package:flutter/services.dart';
 import 'package:waifu_gui/utils/file_config.dart';
 
-import '../utils/image_extensions.dart';
-import '../utils/imported_files.dart';
+import 'package:waifu_gui/utils/image_extensions.dart';
+import 'package:waifu_gui/utils/imported_files.dart';
 
 import 'preview_window/info_row.dart';
 import 'preview_window/upload_widget.dart';
@@ -57,7 +57,7 @@ class _PreviewWindowState extends State<PreviewWindow> {
         String extension = file.path.substring(indexOfDot);
 
         // debug print extension value
-        debugPrint('extension: $extension');
+        //debugPrint('extension: $extension');
         fileConfig.output_path = filePathWithoutFileName;
         fileConfig.output_name = fileName;
         fileConfig.extension = Extension(extension);

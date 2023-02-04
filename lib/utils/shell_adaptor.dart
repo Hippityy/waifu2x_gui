@@ -2,10 +2,13 @@ library waifu_gui.shell_adaptor;
 
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 import 'package:process_run/shell.dart';
 
 import 'package:waifu_gui/utils/file_config.dart';
 import 'package:waifu_gui/utils/imported_files.dart';
+import 'package:waifu_gui/utils/global_key.dart';
 
 String directory = Directory.current.path;
 
@@ -18,13 +21,29 @@ Future<bool> waifuExeExists() async {
 
 void upscale() async {
   var shell = Shell();
+
   bool exeExists = await waifuExeExists();
   if (!exeExists) {
     debugPrint("exe not founds");
     return;
   }
+  SnackBar snackBar = SnackBar(
+    content: Text("Running."),
+    backgroundColor: Colors.blue,
+    behavior: SnackBarBehavior.floating,
+    width: 200,
+  );
+  snackbarKey.currentState?.showSnackBar(snackBar);
   await shell.run(shellCommand());
   debugPrint('Done!');
+
+  snackBar = SnackBar(
+    content: Text("Done!"),
+    backgroundColor: Colors.blue,
+    behavior: SnackBarBehavior.floating,
+    width: 200,
+  );
+  snackbarKey.currentState?.showSnackBar(snackBar);
 }
 
 String shellCommand() {

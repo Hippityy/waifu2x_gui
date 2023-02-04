@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'widgets/preview_window.dart';
 import 'widgets/config_widget.dart';
+import 'utils/global_key.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Waifu-Upscaler',
+      scaffoldMessengerKey: snackbarKey,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
