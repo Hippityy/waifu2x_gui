@@ -41,6 +41,7 @@ dependencies:
   file_picker: ^5.2.5
   process_run: ^0.12.5+2
   another_flushbar: ^1.12.29
+  context_holder: ^0.0.5
 
 dev_dependencies:
   flutter_test:
