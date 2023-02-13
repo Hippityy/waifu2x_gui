@@ -40,6 +40,7 @@ dependencies:
   path: ^1.8.2
   file_picker: ^5.2.5
   process_run: ^0.12.5+2
+  another_flushbar: ^1.12.29
 
 dev_dependencies:
   flutter_test:
