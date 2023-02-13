@@ -1,3 +1,4 @@
+import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
 import 'widgets/preview_window.dart';
 import 'widgets/config_widget.dart';
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: ContextHolder.key,
       title: 'Waifu-Upscaler',
       scaffoldMessengerKey: snackbarKey,
       theme: ThemeData(
