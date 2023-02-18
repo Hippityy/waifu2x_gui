@@ -72,6 +72,10 @@ class _UploadWidgetState extends State<UploadWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        if (!widget.onlyButton) const SizedBox(height: 15),
+        if (!widget.onlyButton)
+          const Text(
+              style: TextStyle(color: Colors.white), 'Drop in a file or'),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ElevatedButton(
@@ -89,6 +93,7 @@ class _UploadWidgetState extends State<UploadWidget> {
             ),
           ),
         ),
+        if (!widget.onlyButton) const SizedBox(height: 10),
         if (!widget.onlyButton)
           FutureBuilder<List<Extension>>(
               future: futureSupportedExtensions,
@@ -98,7 +103,7 @@ class _UploadWidgetState extends State<UploadWidget> {
                   _supportedTypes = FileType.custom;
                   extensionList = snapshot.data!.map((e) => e.string).toList();
                   return Text(
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.grey),
                       'Supported image formats: ${extensionList.join(" ")}');
                 } else {
                   return const Text('Loading supported image formats');
