@@ -47,3 +47,36 @@ void showErrorFlushbar({required String text, int duration = 2}) {
     leftBarIndicatorColor: Colors.red,
   )..show(ContextHolder.currentContext);
 }
+
+void showButtonFlushbar(
+    {required String text,
+    int duration = 4,
+    required String buttonText,
+    required void Function() onPressed}) {
+  Flushbar flushbar = Flushbar(
+    message: text,
+    icon: const Icon(
+      Icons.info_outline,
+      size: 20.0,
+      color: Colors.blue,
+    ),
+    margin: const EdgeInsets.all(8),
+    mainButton: TextButton(
+      onPressed: () => onPressed(),
+      child: Text(
+        buttonText,
+        style: const TextStyle(color: Colors.blue),
+      ),
+    ),
+    maxWidth: 500,
+    duration: Duration(seconds: duration),
+    boxShadows: [
+      BoxShadow(
+        color: Color(0x000).withOpacity(0.4),
+        offset: Offset(0, 0),
+        blurRadius: 3.0,
+      )
+    ],
+    leftBarIndicatorColor: Colors.blue,
+  )..show(ContextHolder.currentContext);
+}
