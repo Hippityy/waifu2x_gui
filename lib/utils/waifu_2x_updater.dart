@@ -6,8 +6,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:archive/archive.dart';
-import 'package:another_flushbar/flushbar.dart';
-import 'package:context_holder/context_holder.dart';
 
 import '/utils/globals.dart';
 import '/utils/flushbar_helper.dart';

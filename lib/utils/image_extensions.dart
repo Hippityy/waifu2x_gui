@@ -1,7 +1,8 @@
 library waifu_gui.image_extensions;
 
 import 'package:hive/hive.dart';
-import 'package:waifu_gui/utils/globals.dart';
+
+import '/utils/globals.dart';
 
 //https://stackoverflow.com/questions/58237643/how-to-encode-and-decode-a-list-of-custom-objects-to-and-from-json-in-dart
 class Extension {

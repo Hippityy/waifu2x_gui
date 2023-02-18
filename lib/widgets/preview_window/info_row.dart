@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cross_file/cross_file.dart';
-import 'package:waifu_gui/utils/globals.dart';
-import 'upload_widget.dart';
+
+import '/utils/globals.dart';
+import '/widgets/preview_window/upload_widget.dart';
 
 class InfoRow extends StatefulWidget {
   final ValueChanged<List<XFile>> onChanged;

@@ -1,16 +1,14 @@
-import 'dart:io';
-
 import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:waifu_gui/utils/image_extensions.dart';
+
+import '/utils/waifu_2x_updater.dart';
+import '/utils/image_extensions.dart';
+import '/utils/globals.dart';
+import '/utils/hive.dart';
 
 import 'widgets/preview_window.dart';
 import 'widgets/config_widget.dart';
-import 'utils/waifu_2x_updater.dart';
-import 'utils/globals.dart';
-import 'utils/hive.dart';
 
 void main() async {
   await Hive.initFlutter();

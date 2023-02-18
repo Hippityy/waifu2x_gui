@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:io';
 
-import 'package:waifu_gui/utils/shell_adaptor.dart';
-import 'package:waifu_gui/widgets/config_widgets/checkbox_widget.dart';
-import 'package:waifu_gui/widgets/config_widgets/slider_widget.dart';
-import 'package:waifu_gui/utils/globals.dart';
+import '/utils/globals.dart';
+import '/utils/shell_adaptor.dart';
+import '/widgets/config_widgets/checkbox_widget.dart';
+import '/widgets/config_widgets/slider_widget.dart';
 
 class ConfigWidget extends StatelessWidget {
   const ConfigWidget({

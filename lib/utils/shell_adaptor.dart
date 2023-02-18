@@ -5,9 +5,9 @@ import 'dart:io';
 import 'package:process_run/shell.dart';
 import 'package:open_filex/open_filex.dart';
 
-import 'package:waifu_gui/utils/globals.dart';
-import 'package:waifu_gui/utils/image_extensions.dart';
-import 'package:waifu_gui/utils/flushbar_helper.dart';
+import '/utils/globals.dart';
+import '/utils/image_extensions.dart';
+import '/utils/flushbar_helper.dart';
 
 void upscale() async {
   if (!waifuExeExists) {
