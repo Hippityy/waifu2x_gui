@@ -2,11 +2,9 @@
 A basic Flutter GUI to interface with waifu2x-ncnn-vulkan.
 
 
-### To Setup
+### To Run
 - Clone and build application
-- Create a folder named `upscaler` in root directory of exe.
-- Download [https://github.com/nihui/waifu2x-ncnn-vulkan] and extract contents into folder.
-
+- Run :)
 
 # Roadmap
 
