@@ -1,17 +1,19 @@
 # Waifu2x_GUI
-A basic Flutter GUI to interface with waifu2x-ncnn-vulkan.
+A basic GUI to upscale images with waifu2x.
 
 
 ### To Run
-- Clone and build application
+- Clone and build
 - Run :)
 
-# Roadmap
 
-## Features
-- Popup status of upscaling
+---
+
+# Roadmap
+## Features (To Do)
+- ~~Popup status of upscaling~~
 - Custom output path and file extension
-- Point towards upscaler exe
+- ~~Point towards upscaler exe~~ (Auto download waifu2x package implemented)
 - Batch image processing
 - More imagine options
 - GPU option selection
