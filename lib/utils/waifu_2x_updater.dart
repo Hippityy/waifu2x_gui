@@ -8,13 +8,12 @@ import 'package:http/http.dart' as http;
 import 'package:archive/archive.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:context_holder/context_holder.dart';
-import 'package:waifu_gui/utils/config.dart';
 
 import '/utils/globals.dart';
 import '/utils/flushbar_helper.dart';
 
 Future<bool> updateWaifuExeExists() async {
-  waifuExeExists = await File(config.exePath).exists();
+  waifuExeExists = await File(config.get('exePath')).exists();
   return waifuExeExists;
 }
 
@@ -71,10 +70,8 @@ void InstallWaifuExe() async {
       }
       final topDirName =
           parentDirs.toList().last.split(Platform.pathSeparator).last;
-      config.exePath =
-          '$directory\\upscaler\\$topDirName\\waifu2x-ncnn-vulkan.exe';
-      saveConfig(config);
-      loadConfig();
+      config.put('exePath',
+          '$directory\\upscaler\\$topDirName\\waifu2x-ncnn-vulkan.exe');
       debugPrint('Top directory name: $topDirName');
     }
     showInfoFlushbar(text: 'Done');

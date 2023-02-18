@@ -44,6 +44,8 @@ dependencies:
   context_holder: ^0.0.5
   http: ^0.13.5
   archive: ^3.3.6
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:

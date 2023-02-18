@@ -32,19 +32,19 @@ class ConfigWidget extends StatelessWidget {
         SliderWidget(
           title: "De-noise",
           intervals: const [-1, 0, 1, 2, 3],
-          onChanged: (int value) => {fileConfig.noise = value},
+          onChanged: (int value) => config.put('noise', value),
         ),
         SliderWidget(
           title: "Scale",
           intervals: const [1, 2, 4, 8, 16, 32],
-          onChanged: (int value) => {fileConfig.scale = value},
+          onChanged: (int value) => config.put('scale', value),
         ),
         CheckboxWidget(
           title: "TTA",
-          value: fileConfig.tta,
+          value: config.get('tta', defaultValue: false),
           onChanged: (bool value) {
-            fileConfig.tta = value;
-            debugPrint('TTA: $value | ${fileConfig.tta}');
+            config.put('tta', value);
+            debugPrint('TTA: $value | ${config.get('tta')}');
           },
         ),
         ElevatedButton(

@@ -53,11 +53,9 @@ class _PreviewWindowState extends State<PreviewWindow> {
             filePathWithoutExtension.substring(indexOfLastSlash + 1);
         String extension = file.path.substring(indexOfDot);
 
-        // debug print extension value
-        //debugPrint('extension: $extension');
-        fileConfig.output_path = filePathWithoutFileName;
-        fileConfig.output_name = fileName;
-        fileConfig.extension = Extension(extension);
+        config.put('imagePath', filePathWithoutFileName);
+        config.put('imageName', fileName);
+        config.put('extension', Extension(extension));
       });
     }
   }
