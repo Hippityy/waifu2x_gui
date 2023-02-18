@@ -1,6 +1,6 @@
 library waifu_gui.file_config;
 
-import '../utils/image_extensions.dart';
+import '/utils/image_extensions.dart';
 
 class FileConfig {
   String output_path = '';

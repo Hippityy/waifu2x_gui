@@ -42,6 +42,8 @@ dependencies:
   process_run: ^0.12.5+2
   another_flushbar: ^1.12.29
   context_holder: ^0.0.5
+  http: ^0.13.5
+  archive: ^3.3.6
 
 dev_dependencies:
   flutter_test:
