@@ -49,7 +49,8 @@ void InstallWaifuExe() async {
       final archive = ZipDecoder().decodeBytes(bytes);
       final parentDirs = <String>{};
 
-      final upscalerDirectory = Directory('$directory\\upscaler\\');
+      final upscalerDirectory = Directory(
+          '$directory${Platform.pathSeparator}upscaler${Platform.pathSeparator}');
       if (!upscalerDirectory.existsSync()) {
         upscalerDirectory.createSync(recursive: true);
       }
@@ -71,7 +72,7 @@ void InstallWaifuExe() async {
       final topDirName =
           parentDirs.toList().last.split(Platform.pathSeparator).last;
       config.put('exePath',
-          '$directory\\upscaler\\$topDirName\\waifu2x-ncnn-vulkan.exe');
+          '$directory${Platform.pathSeparator}upscaler${Platform.pathSeparator}$topDirName${Platform.pathSeparator}waifu2x-ncnn-vulkan.exe');
       debugPrint('Top directory name: $topDirName');
     }
     showInfoFlushbar(text: 'Done');

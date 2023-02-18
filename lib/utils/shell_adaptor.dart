@@ -2,6 +2,7 @@ library waifu_gui.shell_adaptor;
 
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:waifu_gui/utils/flushbar_helper.dart';
 import 'package:process_run/shell.dart';
 
@@ -13,7 +14,7 @@ void upscale() async {
     showErrorFlushbar(
         duration: 3,
         text:
-            'Waifu2x-ncnn-vulkan.exe not found at \n $directory\\upscaler\\waifu2x-ncnn-vulkan.exe \n Try restarting to auto-download the exe.');
+            'Waifu2x-ncnn-vulkan.exe not found at \n $directory${Platform.pathSeparator}upscaler${Platform.pathSeparator}waifu2x-ncnn-vulkan.exe \n Try restarting to auto-download the exe.');
     return;
   }
   if (importedFilesList.isEmpty) {
@@ -38,5 +39,6 @@ String shellCommand() {
 }
 
 String outputPath() {
-  return "${config.get('imagePath')}${Platform.pathSeparator}${config.get('imageName')}-output${config.get('extension', defaultValue: '.png')}";
+  Extension extension = config.get('extension');
+  return "${config.get('imagePath')}${config.get('imageName')}-output${extension.valid ? extension.string : '.png'}";
 }

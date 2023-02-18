@@ -36,17 +36,22 @@ class _InfoRowState extends State<InfoRow> {
                         widget.onChanged(files);
                       },
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            importedFilesList.clear();
-                            widget.onChanged(importedFilesList);
-                          });
-                        },
-                        style: ElevatedButton.styleFrom(
-                            elevation: 6.0,
-                            textStyle: const TextStyle(color: Colors.white)),
-                        child: Text("Clear Image")),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              importedFilesList.clear();
+                              widget.onChanged(importedFilesList);
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                              elevation: 6.0,
+                              backgroundColor: Colors.grey[800],
+                              foregroundColor: Colors.grey[200],
+                              textStyle: const TextStyle(color: Colors.white)),
+                          child: Text("Clear Image")),
+                    ),
                   ])),
         )
       ],

@@ -44,7 +44,7 @@ class _PreviewWindowState extends State<PreviewWindow> {
         }
 
         int indexOfDot = file.path.lastIndexOf(".");
-        int indexOfLastSlash = file.path.lastIndexOf("\\");
+        int indexOfLastSlash = file.path.lastIndexOf(Platform.pathSeparator);
 
         String filePathWithoutExtension = file.path.substring(0, indexOfDot);
         String filePathWithoutFileName =

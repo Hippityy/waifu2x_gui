@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:hive/hive.dart';
 import '/utils/globals.dart';
 import '/utils/image_extensions.dart';
@@ -6,7 +8,8 @@ Future<void> loadConfig() async {
   config = await Hive.openBox('config');
   checkKey(
     key: 'exePath',
-    defaultValue: '$directory\\upscaler\\waifu2x-ncnn-vulkan.exe',
+    defaultValue:
+        '$directory${Platform.pathSeparator}upscaler${Platform.pathSeparator}waifu2x-ncnn-vulkan.exe',
   );
   checkKey(
     key: 'noise',

@@ -28,7 +28,9 @@ class ConfigWidget extends StatelessWidget {
         color: Color(0xff252526),
       ),
       child: Column(children: [
-        if (kDebugMode) Text('${directory}\\upscaler\\waifu2x-ncnn-vulkan.exe'),
+        if (kDebugMode)
+          Text(
+              '$directory${Platform.pathSeparator}upscaler${Platform.pathSeparator}waifu2x-ncnn-vulkan.exe'),
         SliderWidget(
           title: "De-noise",
           intervals: const [-1, 0, 1, 2, 3],
