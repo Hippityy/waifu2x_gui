@@ -11,11 +11,9 @@ A basic GUI to upscale images with waifu2x.
 
 # Roadmap
 ## Features (To Do)
-- ~~Popup status of upscaling~~
 - Custom output path and file extension
-- ~~Point towards upscaler exe~~ (Auto download waifu2x package implemented)
 - Batch image processing
-- More imagine options
+- More image options
 - GPU option selection
 
 
