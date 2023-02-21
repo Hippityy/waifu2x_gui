@@ -44,11 +44,12 @@ class WorkspacePage extends StatefulWidget {
   State<WorkspacePage> createState() => _WorkspacePageState();
 }
 
-class _WorkspacePageState extends State<WorkspacePage> {
+class _WorkspacePageState extends State<WorkspacePage>
+    with SingleTickerProviderStateMixin {
   void _asyncInit() async {
     if (!await updateWaifuExeExists()) {
       //WaifuExe Doesn't exist, download from repo.
-      InstallWaifuExe();
+      InstallWaifuExe(this);
     }
   }
 
