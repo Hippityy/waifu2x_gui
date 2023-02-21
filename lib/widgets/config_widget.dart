@@ -46,7 +46,13 @@ class ConfigWidget extends StatelessWidget {
           value: config.get('tta', defaultValue: false),
           onChanged: (bool value) {
             config.put('tta', value);
-            debugPrint('TTA: $value | ${config.get('tta')}');
+          },
+        ),
+        CheckboxWidget(
+          title: "GPU Acceleration",
+          value: config.get('hardware_accel', defaultValue: true),
+          onChanged: (bool value) {
+            config.put('hardware_accel', value);
           },
         ),
         ElevatedButton(

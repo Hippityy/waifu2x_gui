@@ -39,7 +39,7 @@ String shellCommand() {
   if (!listEmpty) {
     outputFileName = outputPath();
   }
-  return '${config.get('exePath')} -i ${listEmpty ? '' : importedFilesList[0].path} -o ${listEmpty ? '' : outputFileName} -n ${config.get('noise')} -s ${config.get('scale')} ${config.get('tta') ? '-x' : ''}';
+  return '${config.get('exePath')} -i ${listEmpty ? '' : importedFilesList[0].path} -o ${listEmpty ? '' : outputFileName} -n ${config.get('noise')} -s ${config.get('scale')}${config.get('hardware_accel') ? '' : ' -g -1'}${config.get('tta') ? ' -x' : ''}';
 }
 
 String outputPath({bool directoryPath = false}) {
