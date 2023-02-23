@@ -17,7 +17,10 @@ Future<bool> updateWaifuExeExists() async {
   return waifuExeExists;
 }
 
-void InstallWaifuExe(TickerProvider ticker) async {
+void InstallWaifuExe({
+  required TickerProvider ticker,
+  required ValueChanged<void> onChanged,
+}) async {
   const url =
       'https://api.github.com/repos/nihui/waifu2x-ncnn-vulkan/releases/latest';
   showInfoFlushbar(text: 'Installing Waifu2x from $url');
@@ -45,7 +48,7 @@ void InstallWaifuExe(TickerProvider ticker) async {
   final int packageLength = packageResponse.contentLength ?? 1;
 
   AnimationController controller = AnimationController(
-    duration: const Duration(seconds: 2),
+    duration: const Duration(seconds: 0),
     upperBound: 1.0,
     lowerBound: 0.0,
     vsync: ticker,
@@ -70,9 +73,16 @@ void InstallWaifuExe(TickerProvider ticker) async {
         blurRadius: 3.0,
       )
     ],
+    messageColor:
+        Theme.of(ContextHolder.currentContext).textTheme.bodyMedium?.color ??
+            Colors.grey[900],
+    backgroundColor:
+        Theme.of(ContextHolder.currentContext).dialogBackgroundColor,
     showProgressIndicator: true,
     progressIndicatorController: controller,
     progressIndicatorBackgroundColor: Colors.grey,
+    progressIndicatorValueColor: AlwaysStoppedAnimation<Color>(
+        Theme.of(ContextHolder.currentContext).colorScheme.primary),
     leftBarIndicatorColor:
         Theme.of(ContextHolder.currentContext).colorScheme.primary,
   )..show(ContextHolder.currentContext);
@@ -116,6 +126,7 @@ void InstallWaifuExe(TickerProvider ticker) async {
           '$directory${Platform.pathSeparator}upscaler${Platform.pathSeparator}$topDirName${Platform.pathSeparator}waifu2x-ncnn-vulkan.exe');
       debugPrint('Top directory name: $topDirName');
       showInfoFlushbar(text: 'Done');
+      onChanged(null);
     },
     onError: (e) {
       showErrorFlushbar(text: 'Failed to download package: ${e}');

@@ -22,12 +22,17 @@ void showInfoFlushbar({required String text, int duration = 2}) {
         blurRadius: 3.0,
       )
     ],
+    messageColor:
+        Theme.of(ContextHolder.currentContext).textTheme.bodyMedium?.color ??
+            Colors.grey[900],
+    backgroundColor:
+        Theme.of(ContextHolder.currentContext).dialogBackgroundColor,
     leftBarIndicatorColor:
         Theme.of(ContextHolder.currentContext).colorScheme.primary,
   )..show(ContextHolder.currentContext);
 }
 
-void showErrorFlushbar({required String text, int duration = 2}) {
+void showErrorFlushbar({required String text, int duration = 5}) {
   Flushbar flushbar = Flushbar(
     message: text,
     icon: const Icon(
@@ -45,6 +50,11 @@ void showErrorFlushbar({required String text, int duration = 2}) {
         blurRadius: 3.0,
       )
     ],
+    messageColor:
+        Theme.of(ContextHolder.currentContext).textTheme.bodyMedium?.color ??
+            Colors.grey[900],
+    backgroundColor:
+        Theme.of(ContextHolder.currentContext).dialogBackgroundColor,
     leftBarIndicatorColor: Colors.red,
   )..show(ContextHolder.currentContext);
 }
@@ -79,6 +89,11 @@ void showButtonFlushbar(
         blurRadius: 3.0,
       )
     ],
+    messageColor:
+        Theme.of(ContextHolder.currentContext).textTheme.bodyMedium?.color ??
+            Colors.grey[900],
+    backgroundColor:
+        Theme.of(ContextHolder.currentContext).dialogBackgroundColor,
     leftBarIndicatorColor:
         Theme.of(ContextHolder.currentContext).colorScheme.primary,
   )..show(ContextHolder.currentContext);

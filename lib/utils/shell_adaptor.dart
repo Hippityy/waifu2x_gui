@@ -14,7 +14,7 @@ void upscale() async {
     showErrorFlushbar(
         duration: 3,
         text:
-            'Waifu2x-ncnn-vulkan.exe not found at \n $directory${Platform.pathSeparator}upscaler${Platform.pathSeparator}waifu2x-ncnn-vulkan.exe \n Try restarting to auto-download the exe.');
+            'Waifu2x-ncnn-vulkan.exe not found at \n ${config.get('exePath')}');
     return;
   }
   if (importedFilesList.isEmpty) {
@@ -22,7 +22,7 @@ void upscale() async {
     return;
   }
 
-  showInfoFlushbar(text: 'Running.');
+  showInfoFlushbar(text: 'Upscaling...');
 
   var shell = Shell();
   await shell.run(shellCommand());
