@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CheckboxWidget extends StatefulWidget {
+class SwitchWidget extends StatefulWidget {
   final String _title;
   final ValueChanged<bool> onChanged;
   bool value;
   @override
-  CheckboxWidget({
+  SwitchWidget({
     Key? key,
     required title,
     required this.value,
@@ -14,10 +14,10 @@ class CheckboxWidget extends StatefulWidget {
         super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _CheckboxWidgetState();
+  State<StatefulWidget> createState() => _SwitchWidgetState();
 }
 
-class _CheckboxWidgetState extends State<CheckboxWidget> {
+class _SwitchWidgetState extends State<SwitchWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,19 +27,17 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(widget._title,
-                style: const TextStyle(
-                    color: Color.fromARGB(255, 238, 238, 238), fontSize: 16)),
-            Checkbox(
+            Text(
+              widget._title,
+            ),
+            Switch(
                 value: widget.value,
                 onChanged: (checkValue) {
-                  if (checkValue != null) {
-                    debugPrint('value : $widget.value ');
-                    setState(() {
-                      widget.value = checkValue;
-                    });
-                    widget.onChanged(widget.value);
-                  }
+                  debugPrint('value : $widget.value ');
+                  setState(() {
+                    widget.value = checkValue;
+                  });
+                  widget.onChanged(widget.value);
                 }),
           ]),
     );

@@ -55,10 +55,10 @@ void InstallWaifuExe(TickerProvider ticker) async {
 
   Flushbar flushbar = Flushbar(
     message: 'Downloading',
-    icon: const Icon(
+    icon: Icon(
       Icons.info_outline,
       size: 20.0,
-      color: Colors.blue,
+      color: Theme.of(ContextHolder.currentContext).colorScheme.primary,
     ),
     margin: const EdgeInsets.all(8),
     maxWidth: 350,
@@ -73,7 +73,8 @@ void InstallWaifuExe(TickerProvider ticker) async {
     showProgressIndicator: true,
     progressIndicatorController: controller,
     progressIndicatorBackgroundColor: Colors.grey,
-    leftBarIndicatorColor: Colors.blue,
+    leftBarIndicatorColor:
+        Theme.of(ContextHolder.currentContext).colorScheme.primary,
   )..show(ContextHolder.currentContext);
 
   packageResponse.stream.listen(

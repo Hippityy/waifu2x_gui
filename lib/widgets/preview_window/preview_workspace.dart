@@ -56,7 +56,7 @@ class _PreviewWorkspaceState extends State<PreviewWorkspace> {
           children: [
             Positioned.fill(
                 child: Container(
-              color: const Color(0xff333333),
+              color: Colors.transparent,
             )),
             if (importedFilesList.isNotEmpty)
               Center(
@@ -68,8 +68,8 @@ class _PreviewWorkspaceState extends State<PreviewWorkspace> {
             Positioned.fill(
               child: Container(
                 color: _dragging
-                    ? const Color(0x88252526)
-                    : const Color(0x00333333),
+                    ? Theme.of(context).backgroundColor.withAlpha(100)
+                    : Colors.transparent,
               ),
             ),
             if (importedFilesList.isEmpty)

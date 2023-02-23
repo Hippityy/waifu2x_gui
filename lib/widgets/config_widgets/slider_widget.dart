@@ -30,9 +30,9 @@ class _SliderWidgetState extends State<SliderWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(widget._title,
-                style: const TextStyle(
-                    color: Color.fromARGB(255, 238, 238, 238), fontSize: 16)),
+            Text(
+              widget._title,
+            ),
             Slider(
                 value: _value.toDouble(),
                 min: 0,
