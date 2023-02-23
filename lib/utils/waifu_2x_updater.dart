@@ -57,7 +57,6 @@ void InstallWaifuExe({
   )..forward();
 
   List<int> bytes = [];
-
   Flushbar flushbar = Flushbar(
     message: 'Downloading',
     icon: Icon(
