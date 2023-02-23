@@ -2,12 +2,15 @@ library waifu_gui.waifu_2x_updater;
 
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/services.dart';
 
 import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:archive/archive.dart';
 import 'package:another_flushbar/flushbar.dart';
+import 'package:file_picker/file_picker.dart';
+
 
 import '/utils/globals.dart';
 import '/utils/flushbar_helper.dart';
@@ -40,7 +43,7 @@ void InstallWaifuExe({
   final int packageSize =
       int.parse(headResponse.headers['content-length'] ?? '1');
   debugPrint('Package size: $packageSize bytes');
-
+  
   // --- DOWNLOAD PACKAGE --- //
   final request = http.Request('GET', Uri.parse(assetUrl));
   final http.StreamedResponse packageResponse =
@@ -55,7 +58,6 @@ void InstallWaifuExe({
   )..forward();
 
   List<int> bytes = [];
-
   Flushbar flushbar = Flushbar(
     message: 'Downloading',
     icon: Icon(
@@ -141,6 +143,33 @@ Future<String?> getLatestRelease(String url) async {
     showErrorFlushbar(
         text: 'Failed to get latest release: ${response.reasonPhrase}');
     return null;
+  }
+  final data = json.decode(response.body);
+  final assets = data['assets'] as List<dynamic>;
+  final asset =
+      assets.firstWhere((asset) => asset['name'].endsWith('windows.zip'));
+  return asset['browser_download_url'] as String;
+}
+
+Future<void> setPath() async {
+  late List<PlatformFile>? _platformFiles;
+  try {
+    _platformFiles = (await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowMultiple: false,
+      onFileLoading: (FilePickerStatus status) => print(status),
+      allowedExtensions: ['exe'],
+    ))
+        ?.files;
+  } on PlatformException catch (e) {
+    debugPrint('Unsupported operation ${e.toString()}');
+  } catch (e) {
+    debugPrint(e.toString());
+  }
+  if (_platformFiles != null && _platformFiles.isNotEmpty) {
+    final filePath = _platformFiles.first.path;
+    config.put('exePath', filePath);
+    return;
   }
   final data = json.decode(response.body);
   final assets = data['assets'] as List<dynamic>;
