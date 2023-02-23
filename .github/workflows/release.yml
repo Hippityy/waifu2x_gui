@@ -1,9 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Flutter build and push release
+Name: Flutter build and push release
 
 on:
   push:
@@ -30,6 +25,15 @@ jobs:
       - run: flutter config --enable-windows-desktop
       - run: flutter build windows
       
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7. 1
+        with:
+          type: 'zip'
+          filename: 'release.zip'
+          directory: "build/windows/runner/"
+          path: "Release/"
+          exclusions: '*.git* /*node_modules/* .editorconfig'
+          
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
