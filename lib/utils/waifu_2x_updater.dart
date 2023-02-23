@@ -42,7 +42,7 @@ void InstallWaifuExe({
   final int packageSize =
       int.parse(headResponse.headers['content-length'] ?? '1');
   debugPrint('Package size: $packageSize bytes');
-
+  
   // --- DOWNLOAD PACKAGE --- //
   final request = http.Request('GET', Uri.parse(assetUrl));
   final http.StreamedResponse packageResponse =
