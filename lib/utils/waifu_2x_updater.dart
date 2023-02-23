@@ -11,6 +11,7 @@ import 'package:archive/archive.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:file_picker/file_picker.dart';
 
+
 import '/utils/globals.dart';
 import '/utils/flushbar_helper.dart';
 
@@ -42,7 +43,7 @@ void InstallWaifuExe({
   final int packageSize =
       int.parse(headResponse.headers['content-length'] ?? '1');
   debugPrint('Package size: $packageSize bytes');
-
+  
   // --- DOWNLOAD PACKAGE --- //
   final request = http.Request('GET', Uri.parse(assetUrl));
   final http.StreamedResponse packageResponse =
@@ -57,7 +58,6 @@ void InstallWaifuExe({
   )..forward();
 
   List<int> bytes = [];
-
   Flushbar flushbar = Flushbar(
     message: 'Downloading',
     icon: Icon(
@@ -171,4 +171,9 @@ Future<void> setPath() async {
     config.put('exePath', filePath);
     return;
   }
+  final data = json.decode(response.body);
+  final assets = data['assets'] as List<dynamic>;
+  final asset =
+      assets.firstWhere((asset) => asset['name'].endsWith('windows.zip'));
+  return asset['browser_download_url'] as String;
 }
