@@ -30,8 +30,8 @@ jobs:
         with:
           type: 'zip'
           filename: 'release.zip'
-          directory: "build/windows/runner/Release"
-          path: "Release/"
+          directory: "build/windows/runner/Release/"
+          path: "Waifu2x-GUI-Release/"
           exclusions: '*.git* /*node_modules/* .editorconfig'
           
       - name: Push to Releases
