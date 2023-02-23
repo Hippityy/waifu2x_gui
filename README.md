@@ -1,4 +1,5 @@
-# Waifu2x_GUI
+![Waiu2x GUI](https://raw.githubusercontent.com/Hippityy/waifu2x_gui/main/assets/full.png)
+
 A basic GUI to upscale images with waifu2x.
 
 ---
@@ -14,7 +15,9 @@ A basic GUI to upscale images with waifu2x.
 - Open pull requests to `dev`
 
 ---
-
+### Screenshot
+![Logo](https://raw.githubusercontent.com/Hippityy/waifu2x_gui/main/assets/scrnsht.png)
+--
 ### Features (To Do)
 - Custom output path and file extension
 - Batch image processing
