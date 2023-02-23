@@ -30,13 +30,13 @@ jobs:
         with:
           type: 'zip'
           filename: 'release.zip'
-          directory: "build/windows/runner/"
+          directory: "build/windows/runner/Release"
           path: "Release/"
           exclusions: '*.git* /*node_modules/* .editorconfig'
           
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/windows/runner/Release/*"
+          artifacts: "build/windows/runner/Release/release.zip"
           tag: v1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
