@@ -11,7 +11,6 @@ import 'package:archive/archive.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:file_picker/file_picker.dart';
 
-
 import '/utils/globals.dart';
 import '/utils/flushbar_helper.dart';
 
@@ -171,9 +170,5 @@ Future<void> setPath() async {
     config.put('exePath', filePath);
     return;
   }
-  final data = json.decode(response.body);
-  final assets = data['assets'] as List<dynamic>;
-  final asset =
-      assets.firstWhere((asset) => asset['name'].endsWith('windows.zip'));
-  return asset['browser_download_url'] as String;
+  return;
 }
