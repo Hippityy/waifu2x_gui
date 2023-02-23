@@ -1,6 +1,6 @@
-Name: Flutter build and push release
-
+name: Flutter build and push release
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
     paths-ignore:
