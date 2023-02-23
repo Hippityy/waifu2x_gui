@@ -1,34 +1,23 @@
 # Waifu2x_GUI
 A basic GUI to upscale images with waifu2x.
 
+---
+### Setup
+(Currently only compiling Windows builds, should compile/work on macOS/Linux aswell)
+- Download the binary from [Releases](https://github.com/Hippityy/waifu2x_gui/releases)
+- Run `waifu_gui.exe`. 
+- Download or set path to waifu2x executable.
 
-### To Run
-- Clone and build
-- Run :)
-
+---
+### To Contribute
+- Fork `dev` 
+- Open pull requests to `dev`
 
 ---
 
-# Roadmap
-## Features (To Do)
-- ~~Popup status of upscaling~~
+### Features (To Do)
 - Custom output path and file extension
-- ~~Point towards upscaler exe~~ (Auto download waifu2x package implemented)
 - Batch image processing
-- More imagine options
+- More image options
 - GPU option selection
-
-
-## File Extensions
-### 1. Basic file conversions
-- BMP 
-- TIFF
-- TGA
-- ICO
-- QOI
-
-### 2. Animated images
-- GIF
-- APNG
-
-### 3. Full videos, ffmpeg?
+- FFmpeg File conversions
