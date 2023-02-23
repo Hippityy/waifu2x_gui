@@ -54,8 +54,10 @@ class WaifuNotFoundWidget extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 debugPrint('SetPath Pressed');
+                await setPath();
+                onChanged(null);
               },
               // style: ButtonStyle(elevation: MaterialStateProperty(12.0 )),
               style: ElevatedButton.styleFrom(
