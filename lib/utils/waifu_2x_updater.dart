@@ -171,4 +171,5 @@ Future<void> setPath() async {
     config.put('exePath', filePath);
     return;
   }
+  return;
 }
