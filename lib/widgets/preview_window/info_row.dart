@@ -24,8 +24,8 @@ class _InfoRowState extends State<InfoRow> {
         Flexible(
           child: Container(
               height: importedFilesList.isEmpty ? 0 : 44,
-              decoration: const BoxDecoration(
-                color: Color(0xff1e1e1e),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
               ),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

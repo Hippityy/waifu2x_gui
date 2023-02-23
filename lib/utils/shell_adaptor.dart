@@ -14,7 +14,7 @@ void upscale() async {
     showErrorFlushbar(
         duration: 3,
         text:
-            'Waifu2x-ncnn-vulkan.exe not found at \n $directory${Platform.pathSeparator}upscaler${Platform.pathSeparator}waifu2x-ncnn-vulkan.exe \n Try restarting to auto-download the exe.');
+            'Waifu2x-ncnn-vulkan.exe not found at \n ${config.get('exePath')}');
     return;
   }
   if (importedFilesList.isEmpty) {
@@ -22,7 +22,7 @@ void upscale() async {
     return;
   }
 
-  showInfoFlushbar(text: 'Running.');
+  showInfoFlushbar(text: 'Upscaling...');
 
   var shell = Shell();
   await shell.run(shellCommand());
@@ -39,7 +39,7 @@ String shellCommand() {
   if (!listEmpty) {
     outputFileName = outputPath();
   }
-  return '${config.get('exePath')} -i ${listEmpty ? '' : importedFilesList[0].path} -o ${listEmpty ? '' : outputFileName} -n ${config.get('noise')} -s ${config.get('scale')} ${config.get('tta') ? '-x' : ''}';
+  return '${config.get('exePath')} -i ${listEmpty ? '' : importedFilesList[0].path} -o ${listEmpty ? '' : outputFileName} -n ${config.get('noise')} -s ${config.get('scale')}${config.get('hardware_accel') ? '' : ' -g -1'}${config.get('tta') ? ' -x' : ''}';
 }
 
 String outputPath({bool directoryPath = false}) {

@@ -32,6 +32,10 @@ Future<void> loadConfig() async {
     key: 'overrrideExtension',
     defaultValue: Extension('.png'),
   );
+  checkKey(
+    key: 'hardware_accel',
+    defaultValue: true,
+  );
 }
 
 void checkKey({required String key, required var defaultValue}) {

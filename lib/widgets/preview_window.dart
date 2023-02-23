@@ -29,10 +29,10 @@ class _PreviewWindowState extends State<PreviewWindow> {
     for (final file in files) {
       // If file extension is supported
       try {
-        final extension = supportedExtensions
-            .firstWhere((e) => e.string == p.extension(file.path));
+        final extension = supportedExtensions.firstWhere(
+            (e) => e.string == p.extension(file.path).toLowerCase());
       } on StateError catch (e) {
-        debugPrint(e.message);
+        debugPrint('StateError: ${e.message}');
         return;
       }
       setState(() {

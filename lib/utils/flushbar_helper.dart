@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 void showInfoFlushbar({required String text, int duration = 2}) {
   Flushbar flushbar = Flushbar(
     message: text,
-    icon: const Icon(
+    icon: Icon(
       Icons.info_outline,
       size: 20.0,
-      color: Colors.blue,
+      color: Theme.of(ContextHolder.currentContext).colorScheme.primary,
     ),
     margin: const EdgeInsets.all(8),
     maxWidth: 350,
@@ -22,11 +22,17 @@ void showInfoFlushbar({required String text, int duration = 2}) {
         blurRadius: 3.0,
       )
     ],
-    leftBarIndicatorColor: Colors.blue,
+    messageColor:
+        Theme.of(ContextHolder.currentContext).textTheme.bodyMedium?.color ??
+            Colors.grey[900],
+    backgroundColor:
+        Theme.of(ContextHolder.currentContext).dialogBackgroundColor,
+    leftBarIndicatorColor:
+        Theme.of(ContextHolder.currentContext).colorScheme.primary,
   )..show(ContextHolder.currentContext);
 }
 
-void showErrorFlushbar({required String text, int duration = 2}) {
+void showErrorFlushbar({required String text, int duration = 5}) {
   Flushbar flushbar = Flushbar(
     message: text,
     icon: const Icon(
@@ -44,6 +50,11 @@ void showErrorFlushbar({required String text, int duration = 2}) {
         blurRadius: 3.0,
       )
     ],
+    messageColor:
+        Theme.of(ContextHolder.currentContext).textTheme.bodyMedium?.color ??
+            Colors.grey[900],
+    backgroundColor:
+        Theme.of(ContextHolder.currentContext).dialogBackgroundColor,
     leftBarIndicatorColor: Colors.red,
   )..show(ContextHolder.currentContext);
 }
@@ -55,17 +66,18 @@ void showButtonFlushbar(
     required void Function() onPressed}) {
   Flushbar flushbar = Flushbar(
     message: text,
-    icon: const Icon(
+    icon: Icon(
       Icons.info_outline,
       size: 20.0,
-      color: Colors.blue,
+      color: Theme.of(ContextHolder.currentContext).colorScheme.primary,
     ),
     margin: const EdgeInsets.all(8),
     mainButton: TextButton(
       onPressed: () => onPressed(),
       child: Text(
         buttonText,
-        style: const TextStyle(color: Colors.blue),
+        style: TextStyle(
+            color: Theme.of(ContextHolder.currentContext).colorScheme.primary),
       ),
     ),
     maxWidth: 500,
@@ -77,6 +89,12 @@ void showButtonFlushbar(
         blurRadius: 3.0,
       )
     ],
-    leftBarIndicatorColor: Colors.blue,
+    messageColor:
+        Theme.of(ContextHolder.currentContext).textTheme.bodyMedium?.color ??
+            Colors.grey[900],
+    backgroundColor:
+        Theme.of(ContextHolder.currentContext).dialogBackgroundColor,
+    leftBarIndicatorColor:
+        Theme.of(ContextHolder.currentContext).colorScheme.primary,
   )..show(ContextHolder.currentContext);
 }
